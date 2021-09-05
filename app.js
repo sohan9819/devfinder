@@ -1,5 +1,7 @@
 // const { functionsIn } = require("lodash")
 
+const result = document.querySelector('#result')
+
 const search = document.querySelector('#search')
 const button = document.querySelector('#btn')
 
@@ -17,6 +19,8 @@ const site = document.querySelector('#site')
 const twitter = document.querySelector('#twitter')
 const github = document.querySelector('#github')
 
+const monthList = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
+
 button.addEventListener('click' , function(){
     console.log(search.value)
     userData(search.value)
@@ -25,8 +29,15 @@ button.addEventListener('click' , function(){
 
 const userData = async (name) => {
     const config = { headers: { Accept : "application/vnd.github.v3+json"}}
+    try {
+        const res = await axios.get(`https://api.github.com/users/${name}` , config)
+    } catch(e){
+        alert('OOPS!!! Something went worng :( \nMake sure you have entered correct username')
+        console.log('Error!!! ', e )
+    }
     const res = await axios.get(`https://api.github.com/users/${name}` , config)
-    console.log(res.data)
+    // console.log(res.data)
+    result.classList.remove('hidden')
     display(res.data)
 }
 
@@ -34,6 +45,8 @@ const display = (data) => {
     img_url.nodeValue = data.avatar_url
     userName.innerText = data.name
     gitName.innerText = "@"+data.login
+    const date = new Date(data.created_at)
+    joinDate.innerText = `Joined ${date.getDay()} ${monthList[date.getMonth()]} ${date.getFullYear()}`
     bio.innerText = data.bio
     repos.innerText = data.public_repos
     followers.innerText = data.followers
@@ -44,16 +57,21 @@ const display = (data) => {
     github.innerHTML = `<a href="${data.html_url}" target="blank">@${data.login}</a>`
 }
 
+search.addEventListener('change' , function(e){
+    result.className += " hidden"
+    img_url.nodeValue = ""
+    userName.innerText = ""
+    gitName.innerText = ""
+    bio.innerText = ""
+    repos.innerText = ""
+    followers.innerText = ""
+    following.innerText = ""
+    locat.innerText = ""
+    site.innerHTML = ""
+    twitter.innerHTML = ""
+    github.innerHTML = ""
 
+    userData(search.value)
+})
 
-// userData()
-
-// date = new Date('2013-03-10T02:00:00Z');
-// console.log(date.getFullYear()+'-' + (date.getMonth()+1) + '-'+date.getDate());
-
-// const d = new Date("2020-05-07T19:29:40Z");
-// console.log(d)
-// console.log(d.getDate())
-// console.log(d.getMonth())
-// console.log(d.getFullYear())
 
