@@ -12,8 +12,221 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>devfinder</title>
   </head>
-  <body>
-    <h1>Hello World</h1>
+  <body class="bg-gray-800 bg-white box-borde sm:h-screen">
+    <div
+      class="h-full flex items-center justify-center flex-col max-w-xl m-auto"
+    >
+      <!-- <img
+        class="h-16"
+        src="https://avatars.githubusercontent.com/u/64985447?v=4"
+        alt="avatars"
+        srcset=""
+      /> -->
+      <div class="h-12 w-11/12 flex justify-between my-4">
+        <h1
+          class="
+            justify-self-start
+            self-center
+            text-white
+            font-bold font-mono
+            text-xl
+          "
+        >
+          devfinder
+        </h1>
+        <div class="w-max h-full flex justify-center items-center">
+          <h3
+            class="
+              justify-self-end
+              self-center
+              text-white
+              px-4
+              font-mono
+              tracking-widest
+            "
+          >
+            LIGHT
+          </h3>
+          <i class="justify-self-end self-center fas fa-sun text-white"></i>
+        </div>
+      </div>
+
+      <div
+        class="
+          w-11/12
+          h-14
+          bg-gray-700
+          flex
+          items-center
+          justify-center
+          rounded-xl
+        "
+      >
+        <div class="w-4/5 p-2">
+          <i class="fas fa-search text-blue-600 p-2"></i>
+          <input
+            type="text"
+            placeholder="Search Github username..."
+            class="font-mono bg-gray-700 w-4/5 p-1 text-gray-400"
+            id="search"
+          />
+        </div>
+        <button
+          type="submit"
+          class="
+            w-20
+            h-10
+            bg-blue-600
+            text-white text-center
+            font-mono
+            mr-2
+            rounded-lg
+          "
+          id="btn"
+        >
+          Search
+        </button>
+      </div>
+
+      <div class="w-11/12 h-max bg-gray-700 my-4 rounded-lg">
+        <div class="grid grid-cols-3 grid-rows-2 relative py-4 sm:py-0 sm:pt-4">
+          <div
+            class="
+              col-start-1 col-span-1
+              row-start-1 row-span-1
+              px-4
+              flex
+              justify-center
+              items-center
+            "
+          >
+            <img
+              src=""
+              alt="avatars"
+              class="rounded-full mx-auto max-h-28"
+              id="imgUrl"
+            />
+          </div>
+          <div
+            class="
+              col-start-2 col-end-4
+              flex
+              justify-center
+              items-start
+              flex-col
+            "
+          >
+            <h2 class="text-white font-mono" id="username">The Username</h2>
+            <h4 class="text-blue-600 font-mono" id="gitName">@username</h4>
+            <h4 class="text-white font-mono" id="date">Joined 25 Jan 2011</h4>
+          </div>
+
+          <div
+            class="
+              row-start-2
+              col-start-1 col-end-4
+              px-4
+              mt-2
+              h-max
+              flex
+              items-center
+              justify-center
+            "
+          >
+            <p class="text-white tracking-wide font-mono" id="bio">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic sunt
+              tempore aspernatur, a, in veniam dolorum veritatis commodi
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="
+            flex
+            justify-around
+            items-center
+            bg-gray-900
+            m-4
+            rounded-lg
+            p-4
+          "
+        >
+          <div class="w-max h-full text-center">
+            <h3
+              class="
+                text-gray-100
+                tracking-wide
+                font-thin
+                text-xs
+                py-2
+                font-mono
+              "
+            >
+              Repos
+            </h3>
+            <h2 class="text-white font-bold font-mono" id="repos">8</h2>
+          </div>
+          <div class="w-max h-full text-center">
+            <h3
+              class="
+                text-gray-100
+                tracking-wide
+                font-thin
+                text-xs
+                py-2
+                font-mono
+              "
+            >
+              Followers
+            </h3>
+            <h2 class="text-white font-bold font-mono" id="followers">3938</h2>
+          </div>
+          <div class="w-max h-full text-center">
+            <h3
+              class="
+                text-gray-100
+                tracking-wide
+                font-thin
+                text-xs
+                py-2
+                font-mono
+              "
+            >
+              Following
+            </h3>
+            <h2 class="text-white font-bold font-mono" id="following">9</h2>
+          </div>
+        </div>
+
+        <div class="mb-8 sm:grid sm:grid-cols-1">
+          <div class="sm:ml-2">
+            <div class="text-white font-mono flex justify-start items-center">
+              <div class="px-4 py-1">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <h4 id="location">Location</h4>
+            </div>
+            <div class="text-white font-mono flex justify-start items-center">
+              <div class="px-4 py-1"><i class="fas fa-link"></i></div>
+              <h4 id="site">https://github.blog</h4>
+            </div>
+          </div>
+          <div class="sm:ml-2">
+            <div class="text-white font-mono flex justify-start items-center">
+              <div class="px-4 py-1"><i class="fab fa-twitter"></i></div>
+              <h4 id="twitter">twitter</h4>
+            </div>
+            <div class="text-white font-mono flex justify-start items-center">
+              <div class="px-4 py-1"><i class="fab fa-github-alt"></i></div>
+              <h4 id="github">github</h4>
+            </div>
+          </div>
+        </div>
+
+        <!-- #### end card ### -->
+      </div>
+    </div>
+
     <script src="./app.js"></script>
   </body>
 </html>
