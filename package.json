@@ -124,7 +124,9 @@
     "yaml": "^1.10.2"
   },
   "scripts": {
-    "dev": "vite"
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview" 
   },
   "keywords": [],
   "author": "",
